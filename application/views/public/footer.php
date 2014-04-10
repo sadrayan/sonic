@@ -1,3 +1,8 @@
+
+
+                </div><!-- center-block -->
+            </div><!-- row -->
+        </div><!--  container -->
         <footer>
             <hr>
             <div class="row">

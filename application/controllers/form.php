@@ -161,7 +161,6 @@ class Form extends CI_Controller
 
         if ($submit == 'complete') {
             if ($this->form_validation->run() == FALSE) {
-
                 $post['form'] ='update';
                 $post['id'] = $application[0]['id'];
                 $this->load->view('public/header');
@@ -198,8 +197,9 @@ class Form extends CI_Controller
 
     /**
      * @param $user_id
+     * @param $status
      */
-    public function _inset_Application($user_id, $status)
+    private function _inset_Application($user_id, $status)
     {
         $application = array();
         $application['title'] = $this->input->post('title');
@@ -219,8 +219,10 @@ class Form extends CI_Controller
 
     /**
      * @param $user_id
+     * @param $app_id
+     * @param $status
      */
-    public function _update_application($user_id, $app_id, $status)
+    private function _update_application($user_id, $app_id, $status)
     {
         $application = array();
         $application['id'] = $app_id;
@@ -239,14 +241,14 @@ class Form extends CI_Controller
         $this->load->view('public/footer');
     }
 
-    function pdf()
+    private function pdf()
     {
         $this->load->helper(array('dompdf', 'file'));
         $data['title'] = 'Title sample';
         $data['description'] = 'Description sample';
         // page info here, db calls, etc.
         $html = $this->load->view('user_application/formpdf', $data, true);
-        pdf_create($html, '/opt/pdf/sampe.pdf');
+        pdf_create($html, '/opt/pdf/sample.pdf');
 
 //        $data = pdf_create($html, '', false);
 //        write_file('name', $data);

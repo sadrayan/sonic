@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: sadra
- * Date: 3/29/14
- * Time: 9:53 AM
- */
 
-?>
 <table class="table table-striped" style="width: 700px">
         <tr>
             <th>Title</th>

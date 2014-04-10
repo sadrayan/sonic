@@ -17,7 +17,9 @@ class Auth extends CI_Controller {
 
     function index() {
         if ($message = $this->session->flashdata('message')) {
+            $this->load->view('public/header');
             $this->load->view('auth/general_message', array('message' => $message));
+            $this->load->view('public/footer');
         } else {
             redirect('/auth/login/');
         }
@@ -32,7 +34,7 @@ class Auth extends CI_Controller {
         if ($this->tank_auth->is_logged_in()) {         // logged in
             redirect('/user_profile/profile');
 //        } elseif ($this->tank_auth->is_logged_in(FALSE)) {      // logged in, not activated
-//            //redirect('/auth/send_again/');
+//            redirect('/auth/send_again/');
         } else {
             $data['login_by_username'] = ($this->config->item('login_by_username', 'tank_auth') AND
                     $this->config->item('use_username', 'tank_auth'));
@@ -142,8 +144,15 @@ class Auth extends CI_Controller {
             $email_activation = $this->config->item('email_activation', 'tank_auth');
 
             if ($this->form_validation->run()) {        // validation ok
-                if (!is_null($data = $this->tank_auth->create_user(
-                                $use_username ? $this->form_validation->set_value('username') : '', $this->form_validation->set_value('email'), $this->form_validation->set_value('password'), $email_activation))) {         // success
+                $data = $this->tank_auth->create_user(
+                            $use_username ? $this->form_validation->set_value('username') : '',
+                            $this->form_validation->set_value('email'),
+                            $this->form_validation->set_value('password'),
+                            $this->form_validation->set_value('first_name'),
+                            $this->form_validation->set_value('last_name'),
+                            $this->form_validation->set_value('company'),
+                            $email_activation);
+                if (!is_null($data)) {         // success
                     $data['site_name'] = $this->config->item('website_name', 'tank_auth');
 
                     if ($email_activation) {         // send "activate" email
@@ -178,7 +187,11 @@ class Auth extends CI_Controller {
             $data['use_username'] = $use_username;
             $data['captcha_registration'] = $captcha_registration;
             $data['use_recaptcha'] = $use_recaptcha;
+
+            $this->load->view('public/header');
             $this->load->view('auth/register_form', $data);
+            $this->load->view('public/footer');
+
         }
     }
 
@@ -210,7 +223,9 @@ class Auth extends CI_Controller {
                         $data['errors'][$k] = $this->lang->line($v);
                 }
             }
+            $this->load->view('public/header');
             $this->load->view('auth/send_again_form', $data);
+            $this->load->view('public/footer');
         }
     }
 
@@ -265,7 +280,9 @@ class Auth extends CI_Controller {
                         $data['errors'][$k] = $this->lang->line($v);
                 }
             }
+            $this->load->view('public/header');
             $this->load->view('auth/forgot_password_form', $data);
+            $this->load->view('public/footer');
         }
     }
 
@@ -307,7 +324,9 @@ class Auth extends CI_Controller {
                 $this->_show_message($this->lang->line('auth_message_new_password_failed'));
             }
         }
+        $this->load->view('public/header');
         $this->load->view('auth/reset_password_form', $data);
+        $this->load->view('public/footer');
     }
 
     /**
@@ -335,7 +354,9 @@ class Auth extends CI_Controller {
                         $data['errors'][$k] = $this->lang->line($v);
                 }
             }
+            $this->load->view('public/header');
             $this->load->view('auth/change_password_form', $data);
+            $this->load->view('public/footer');
         }
     }
 
@@ -368,7 +389,9 @@ class Auth extends CI_Controller {
                         $data['errors'][$k] = $this->lang->line($v);
                 }
             }
+            $this->load->view('public/header');
             $this->load->view('auth/change_email_form', $data);
+            $this->load->view('public/footer');
         }
     }
 
@@ -415,7 +438,9 @@ class Auth extends CI_Controller {
                         $data['errors'][$k] = $this->lang->line($v);
                 }
             }
+            $this->load->view('public/header');
             $this->load->view('auth/unregister_form', $data);
+            $this->load->view('public/footer');
         }
     }
 

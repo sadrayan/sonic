@@ -19,14 +19,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application/views/css/style.css" >
-        <script>
-            $(window).load(function(){
-             //   $("#nav_header").sticky({ topSpacing: 0 });
-            });
-        </script>
-        <script>
-            var base_url = "<?php echo site_url(); ?>";
-        </script>
+
 
     </head>
 
@@ -54,3 +47,7 @@
             </div>
             <!-- /.container -->
         </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="center-block">

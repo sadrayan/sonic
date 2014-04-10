@@ -8,7 +8,7 @@ echo "Your application: ";
 
 if ($application){
     ?>
-    <table class="table table-striped" style="width: 700px">
+    <table class="table table-striped" >
         <tr>
             <th>#</th>
             <th>Title</th>

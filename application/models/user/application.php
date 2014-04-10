@@ -48,6 +48,17 @@ class Application extends CI_Model
         return $query->result();
     }
 
+    function get_all_application()
+    {
+        $this->db->select('application.*, users.username'); // <-- There is never any reason to write this line!
+        $this->db->from($this->table_name);
+        $this->db->join('users', 'users.id = application.user_id');
+
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
 
 
     /**
