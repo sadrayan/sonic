@@ -1,4 +1,6 @@
 <?php
+//get application data per field.
+//set_value()
 $app_title = isset($title) ? $title : '';
 $app_desc  = isset($description) ? $description : '';
 $title = array(

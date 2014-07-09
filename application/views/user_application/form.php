@@ -1,11 +1,11 @@
 
-<table class="table table-striped" style="width: 700px">
+<table class="table table-striped">
         <tr>
             <th>Title</th>
-            <th>Description</th>
+            <td><?php echo $application[0]->title;?></td>
         </tr>
         <tr>
-            <td><?php echo $application[0]->title;?></td>
+            <th>Description</th>
             <td><?php echo $application[0]->description;?></td>
         </tr>
 </table>

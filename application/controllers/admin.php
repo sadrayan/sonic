@@ -14,10 +14,19 @@ class Admin extends CI_Controller {
     }
 
     function index () {
-        if (!$this->tank_auth->is_logged_in()) { // logged in
+
+        if (!$this->tank_auth->is_logged_in()) { // not logged in
             redirect('/auth/login/');
             return;
         }
+
+        $data = $this->session->all_userdata();
+
+        // if log in, but not admin
+        if ($data['user_type'] != '2'){
+            redirect('/auth/login/');
+        }
+
         $data =  $this->session->all_userdata();
 
         $data['application'] = $this->application->get_all_application();
@@ -29,9 +38,18 @@ class Admin extends CI_Controller {
     }
 
     function app_view($app_id){
-        if (!$this->tank_auth->is_logged_in()) { // logged in
+
+
+        if (!$this->tank_auth->is_logged_in()) { // not logged in
             redirect('/auth/login/');
             return;
+        }
+
+        // if log in, but not admin
+        $data = $this->session->all_userdata();
+
+        if ($data['user_type'] != '2'){ // not admin
+            redirect('/auth/login/');
         }
 
         $data['application'] = $this->application->get_application($app_id);

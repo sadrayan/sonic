@@ -162,8 +162,8 @@ $captcha = array(
 
     <div class="form-group">
 
-        <label class="col-sm-2 control-label recaptcha_only_if_image">Enter the words above</label>
-        <label class="col-sm-2 control-label recaptcha_only_if_audio">Enter the numbers you hear</label>
+        <label class="col-sm-2 control-label recaptcha_only_if_image" for="recaptcha_response_field">Enter the words above</label>
+        <label class="col-sm-2 control-label recaptcha_only_if_audio" for="recaptcha_response_field">Enter the numbers you hear</label>
 
         <div class="col-sm-3">
             <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" class="form-control" />

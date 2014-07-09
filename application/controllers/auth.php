@@ -32,7 +32,15 @@ class Auth extends CI_Controller {
      */
     function login() {
         if ($this->tank_auth->is_logged_in()) {         // logged in
-            redirect('/user_profile/profile');
+
+            $data = $this->session->all_userdata();
+            $user_type = $data['user_type'];
+            if ($user_type == '1'){ // user
+                redirect('/user_profile/profile');
+            } elseif($user_type == '2') { //admin
+                redirect('/admin/');
+            }
+
 //        } elseif ($this->tank_auth->is_logged_in(FALSE)) {      // logged in, not activated
 //            redirect('/auth/send_again/');
         } else {
@@ -69,7 +77,15 @@ class Auth extends CI_Controller {
                                 $this->form_validation->set_value('remember'), 
                                 $data['login_by_username'], 
                                 $data['login_by_email'])) {
-                    redirect('/user_profile/profile');
+                    //
+                    $data = $this->session->all_userdata();
+                    $user_type = $data['user_type'];
+                    if ($user_type == '1'){ // user
+                        redirect('/user_profile/profile');
+                    } elseif($user_type == '2') { //admin
+                        redirect('/admin/');
+                    }
+
                 } else {
                     $errors = $this->tank_auth->get_error_message();
                     if (isset($errors['banned'])) {        // banned user

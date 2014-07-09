@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'sonic';
-$db['default']['password'] = 'NcRJKeqMRqwETNX5';
-$db['default']['database'] = 'sonic';
+$db['default']['username'] = 'sonic_admin';
+$db['default']['password'] = 'xp?P8D#ylAlu';
+$db['default']['database'] = 'coraltec';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

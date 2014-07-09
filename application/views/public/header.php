@@ -9,16 +9,18 @@
 
         <title><?php //echo $title;?> title</title>
 
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-        <!-- Bootstrap core CSS -->
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Add custom CSS here -->
-
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application/views/css/jquery.multipage.css" >
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application/views/css/style.css" >
+
+        <!-- Bootstrap  CSS -->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" />
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- custom CSS  -->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application/views/resources/css/style.css" />
+
+        <!-- bxSlider CSS file -->
+        <link href="<?php echo base_url(); ?>application/views/resources/css/slider.css" rel="stylesheet" />
 
 
     </head>
