@@ -23,6 +23,21 @@ $lastName = array(
     'size' => 30,
     'class' => 'form-control'
 );
+$email = array(
+    'name' => 'email',
+    'id' => 'email',
+    'value' => set_value('email'),
+    'maxlength' => 80,
+    'size' => 30,
+    'class' => 'form-control'
+);
+$createAccount = array(
+    'name' => 'createAccount',
+    'id' => 'createAccount',
+    'value' => 1,
+    'checked' => set_value('remember'),
+    'style' => 'margin:0;padding:0',
+);
 ?>
 
 <?php echo form_open($this->uri->uri_string(), array('class' => 'form-horizontal')); ?>
@@ -56,6 +71,30 @@ $lastName = array(
             <?php echo form_error($lastName['name']); ?><?php echo isset($errors[$lastName['name']]) ? $errors[$lastName['name']] : ''; ?>
         </div>
     </div>
+
+    <div class="form-group">
+        <?php echo form_label("Last Name", $email['id'], array('class' => 'col-sm-2 control-label')); ?>
+        <div class="col-sm-3">
+            <?php echo form_input($email); ?>
+        </div>
+        <div style="color: red; text-align: left" class="control-label">
+            <?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']]) ? $errors[$email['name']] : ''; ?>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <?php echo form_label("Last Name", $createAccount['id'], array('class' => 'col-sm-2 control-label')); ?>
+        <div class="col-sm-3">
+            <label>
+                <?php echo form_checkbox($createAccount,'',false, 'style=""'); ?> Create account with us!
+            </label>
+        </div>
+        <div style="color: red; text-align: left" class="control-label">
+            <?php echo form_error($createAccount['name']); ?><?php echo isset($errors[$createAccount['name']]) ? $errors[$createAccount['name']] : ''; ?>
+        </div>
+    </div>
+
 
 
 
