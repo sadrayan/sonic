@@ -41,7 +41,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login">Login</a>
+                        <li>
+                            <?php echo anchor('/auth/login/', 'Login'); ?>
                         </li>
                     </ul>
                 </div>
