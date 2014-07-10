@@ -35,7 +35,7 @@ $createAccount = array(
     'name' => 'createAccount',
     'id' => 'createAccount',
     'value' => 1,
-    'checked' => set_value('remember'),
+    'checked' => set_value('createAccount'),
     'style' => 'margin:0;padding:0',
 );
 ?>
@@ -73,7 +73,7 @@ $createAccount = array(
     </div>
 
     <div class="form-group">
-        <?php echo form_label("Last Name", $email['id'], array('class' => 'col-sm-2 control-label')); ?>
+        <?php echo form_label("Email", $email['id'], array('class' => 'col-sm-2 control-label')); ?>
         <div class="col-sm-3">
             <?php echo form_input($email); ?>
         </div>
@@ -84,7 +84,7 @@ $createAccount = array(
 
 
     <div class="form-group">
-        <?php echo form_label("Last Name", $createAccount['id'], array('class' => 'col-sm-2 control-label')); ?>
+        <?php echo form_label("Registration", $createAccount['id'], array('class' => 'col-sm-2 control-label')); ?>
         <div class="col-sm-3">
             <label>
                 <?php echo form_checkbox($createAccount,'',false, 'style=""'); ?> Create account with us!
